@@ -1,19 +1,26 @@
-package dev.gokhana.reactiveapi.model;
+package dev.gokhana.userservice.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Table("reactive_user")
+import javax.validation.constraints.NotBlank;
+import java.util.Objects;
+
+@Document
 public class User {
+
     @Id
-    private Integer id;
+    private String id;
+
+    @NotBlank
     private String name;
+
     private Integer score;
 
     public User() {
     }
 
-    public User(Integer id, String name, Integer score) {
+    public User(String id, String name, Integer score) {
         this.id = id;
         this.name = name;
         this.score = score;
@@ -24,11 +31,11 @@ public class User {
         this.score = score;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -46,6 +53,26 @@ public class User {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (!Objects.equals(id, user.id)) return false;
+        if (!Objects.equals(name, user.name)) return false;
+        return Objects.equals(score, user.score);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (score != null ? score.hashCode() : 0);
+        return result;
     }
 
     @Override

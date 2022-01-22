@@ -1,4 +1,4 @@
-package dev.gokhana.userservice.controller;
+package dev.gokhana.userservice.controller.validation;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebInputException;

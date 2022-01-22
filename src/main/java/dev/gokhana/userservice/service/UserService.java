@@ -1,19 +1,19 @@
-package dev.gokhana.reactiveapi.service;
+package dev.gokhana.userservice.service;
 
-import dev.gokhana.reactiveapi.model.User;
+import dev.gokhana.userservice.model.User;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface UserService {
-    Mono<User> getUserById(int id);
+    Mono<User> getUserById(String id);
 
     Flux<User> getUsers();
 
     Mono<User> saveUser(User userDtoMono);
 
-    Mono<User> updateUser(int id, User userMono);
+    Mono<User> updateUser(String id, User userMono);
 
-    Mono<Void> deleteUser(int id);
+    Mono<Void> deleteUser(String id);
 
-    Mono<User>  getGuestUserById(int id);
+    Mono<Long> deleteByName(String name);
 }
