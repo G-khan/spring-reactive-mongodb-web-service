@@ -16,7 +16,7 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
+.mongo-volume
 ### IntelliJ IDEA ###
 .idea
 *.iws
