@@ -6,17 +6,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest(classes = UserServiceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {"job.autorun.enabled=false"})
-@TestPropertySource(properties = "spring.mongodb.embedded.version=3.5.5")
 class UserServiceApplicationTests {
 
     @Autowired
@@ -31,8 +29,8 @@ class UserServiceApplicationTests {
                 new User("Corç", 25));
 
         Flux<User> flux = Flux.fromIterable(users);
-        given(userRepository.findAll())
-                .willReturn(flux);
+        when(userRepository.findAll())
+                .thenReturn(flux);
 
         webTestClient.get().uri("api/v1/users")
                 .exchange()
