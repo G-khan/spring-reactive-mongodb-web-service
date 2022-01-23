@@ -1,11 +1,2 @@
-spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: user_demo
-      username: root
-      password: mongopw
-# Change the uat and prod profiles
 server:
   port: 8083
