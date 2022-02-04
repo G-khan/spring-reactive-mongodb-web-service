@@ -3,12 +3,12 @@
 
 User service for Spring Data Reactive MongoDB with Spring Webflux (Functional Endpoints)
 
-![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)
+![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)
 
 ### Prerequisites
 * JDK 11+
 * Docker or MongoDB installed
-* [You can read Reactive rest service on Medium](https://gokhana.medium.com)
+* [You can read my article on Medium](https://medium.com/yemeksepeti-teknoloji/spring-reactive-mongodb-ile-reactive-uygulama-geli%C5%9Ftirme-e046fa49ae58)
 
 
 Examples
